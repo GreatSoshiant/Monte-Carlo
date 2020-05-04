@@ -5,33 +5,63 @@ import matplotlib.pyplot as plt
 from matplotlib import style
 import statistics
 import math
+import pylab as pl
+from scipy.stats import lognorm
 
 style.use('ggplot')
 
-r=requests.get('https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=1000')
+day_before = input("how many days you need for API?: ")  #Days for API
+cAmount = float(input("What is your Collateral amount? ")) #amount for Collateral
+day_number = int(input("Enter a day numbers you want: ")) #number of days you want for simulations
+
+## Get prices from API
+r=requests.get('https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=' + day_before)
 prices = [x[1] for x in r.json()['prices']]
 returns=[]
+
 for i in range(len(prices)-1):
-    returns.append((prices[i+1]-prices[i])/prices[i])
+    returns.append(math.log((prices[i+1]/prices[i])))
 
 last_price=prices[-1]
-first_money= 1.5 / prices[-1]
+
+first_money= cAmount / prices[-1] #first_money is the factor of collateral amount to last price of ETH
+
+daily_vol= statistics.stdev(returns)
+daily_avr= statistics.mean(returns)
+daily_var= statistics.variance(returns)
+daily_drift=daily_avr+(daily_var/2)
+
+
+print("This is average of ETH history prices",daily_avr)
+print("This is standar diviation of ETH history prices",daily_vol)
+
+drift = daily_drift
+print("This is drift of the ETH prices",daily_drift)
+
+
+
 
 numberSimulation=1000
 
-day_number=x = int(input("Enter a day numbers you want: "))
+
 simulation_df = pd.DataFrame()
 final_prices=[]
 final_price_for_onepointfive_dollar=[]
-difference=[]
+##difference=[]
+blackCoinZero=[]
+logReturn=[]
+positives=[]
+redBellowOne=[]
+leverages=[]
+
 for i in range(numberSimulation):
     count=0
     daily_vol= statistics.stdev(returns)
     daily_avr= statistics.mean(returns)
     daily_var= statistics.variance(returns)
 
-    daily_drift=daily_avr-(daily_var/2)
-    drift = daily_drift - 0.5 * daily_vol ** 2
+    daily_drift=daily_avr+(daily_var/2)
+    drift = daily_drift
 
     price_series=[]
 
@@ -51,20 +81,69 @@ for i in range(numberSimulation):
         count += 1
 
     simulation_df[i]=price_series
+
+    ## final_prices is the price of all simulations on the last day of estimations
     final_prices.append(price_series[len(price_series)-1])
     final_price_for_onepointfive_dollar.append(first_money * price_series[len(price_series)-1])
-    difference.append((first_money * price_series[len(price_series)-1])-0.5)
-print(statistics.mean(final_prices),statistics.stdev(final_prices))
+    ## Log of the outcomes of each simulation on day nth (100)
+    logReturn.append(math.log(first_money * price_series[len(price_series)-1]))
+
+    ##difference.append((first_money * price_series[len(price_series)-1])-1)
+
+    ##### In this part we assume that for cAmount (collateral) investment we have outcomes and then choose the simulaion results with :
+    #####   1. outcomes lower than 1USD as redBellowOne
+    #####   2. outcomes lesser and equal to one as blackCoinZero (In this part black coin is equal to zero)
+    #####   3. outcomes that are higher than 1USD has a value for blackcoin --> positives
+
+    if ((first_money * price_series[len(price_series)-1]) < 1):
+        redBellowOne.append((first_money * price_series[len(price_series)-1]))
+    if ((first_money * price_series[len(price_series)-1]) <= 1):
+        blackCoinZero.append((first_money * price_series[len(price_series)-1]))
+    else:
+        positives.append((first_money * price_series[len(price_series)-1]))
+        leverages.append((first_money * price_series[len(price_series)-1])-1)
+print("Number of cases that Blackcoin is zero:",len(blackCoinZero))
+print("The mean of Redcoins for Blackcoin equal to zero is:",statistics.mean(blackCoinZero))
+print("Number of cases that Redcoin is bellow one dollar is:",len(redBellowOne))
+print("The mean of Redcoins bellow one dollar is:",statistics.mean(redBellowOne))
+print("The mean of Leverage of Blackcoin for non-zero Blackcoin cases is:",statistics.mean(leverages))
+print("The stantard deviation of Leverage of Blackcoin for non-zero Blackcoin cases is:",statistics.stdev(leverages))
+
+standar_div = statistics.stdev(final_price_for_onepointfive_dollar)
+miangin = statistics.mean(final_price_for_onepointfive_dollar)
+new_drift=  miangin + (standar_div**2)/2  -cAmount
+
+disti=lognorm([standar_div],loc=new_drift)
+
+man=np.linspace(0,6,100)
+
+fig20= plt.figure()
+plt.hist(logReturn, density=False, bins=50)
+
+
+
+fig0= plt.figure()
+plt.hist(final_price_for_onepointfive_dollar, density=False, bins=50)
+pl.plot(man,disti.pdf(man)*100)
 
 fig= plt.figure()
 plt.plot(simulation_df)
 
 
+##fig2= plt.figure()
+##plt.plot(final_price_for_onepointfive_dollar)
 
-fig2= plt.figure()
-plt.plot(final_price_for_onepointfive_dollar)
+
+##fig3= plt.figure()
+##plt.plot(difference)
 
 
-fig3= plt.figure()
-plt.plot(difference)
+fig10= plt.figure()
+plt.hist(leverages, density=False, bins=100)
 plt.show()
+
+
+##fig4= plt.figure()
+##plt.plot(blackCoinZero)
+
+##plt.show()
