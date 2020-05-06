@@ -53,7 +53,8 @@ logReturn=[]
 positives=[]
 redBellowOne=[]
 leverages=[]
-
+littleDrop=[]
+fulllevrage=[]
 for i in range(numberSimulation):
     count=0
     daily_vol= statistics.stdev(returns)
@@ -97,17 +98,35 @@ for i in range(numberSimulation):
 
     if ((first_money * price_series[len(price_series)-1]) < 1):
         redBellowOne.append((first_money * price_series[len(price_series)-1]))
+    if ((first_money * price_series[len(price_series)-1]) > 1 and (first_money * price_series[len(price_series)-1]) < 1.5 ):
+        littleDrop.append((first_money * price_series[len(price_series)-1]))
     if ((first_money * price_series[len(price_series)-1]) <= 1):
         blackCoinZero.append((first_money * price_series[len(price_series)-1]))
     else:
         positives.append((first_money * price_series[len(price_series)-1]))
-        leverages.append((first_money * price_series[len(price_series)-1])-1)
+    if ((first_money * price_series[len(price_series)-1]) >= 1.5):
+        leverages.append(3- (2 /(first_money * price_series[len(price_series)-1])))
+    if ((first_money * price_series[len(price_series)-1]) >= 1):
+        fulllevrage.append(3- (2 /(first_money * price_series[len(price_series)-1])))
+
+print("The mean of last day outcomes is:",statistics.mean(final_price_for_onepointfive_dollar))
+print("The stantard deviation of the last day outcomes is:",statistics.stdev(final_price_for_onepointfive_dollar))
+
 print("Number of cases that Blackcoin is zero:",len(blackCoinZero))
-print("The mean of Redcoins for Blackcoin equal to zero is:",statistics.mean(blackCoinZero))
+
 print("Number of cases that Redcoin is bellow one dollar is:",len(redBellowOne))
 print("The mean of Redcoins bellow one dollar is:",statistics.mean(redBellowOne))
-print("The mean of Leverage of Blackcoin for non-zero Blackcoin cases is:",statistics.mean(leverages))
-print("The stantard deviation of Leverage of Blackcoin for non-zero Blackcoin cases is:",statistics.stdev(leverages))
+print("The STdev of Redcoins bellow one dollar is:",statistics.stdev(redBellowOne))
+
+print("The mean of Leverage of Blackcoin is:",statistics.mean(leverages))
+print("The stantard deviation of Leverage is:",statistics.stdev(leverages))
+
+print("The mean of fulllevrage Leverage of Blackcoin for non-zero Blackcoin cases is:",statistics.mean(fulllevrage))
+print("The stantard deviation of fulllevrage of Blackcoin for non-zero Blackcoin cases is:",statistics.stdev(fulllevrage))
+
+print("Number of cases for a little drop in ETH is:",len(littleDrop))
+print("The mean of cases for a little drop in ETH is:",statistics.mean(littleDrop))
+print("The stantard deviation of cases for a little drop in ETH is:",statistics.stdev(littleDrop))
 
 standar_div = statistics.stdev(final_price_for_onepointfive_dollar)
 miangin = statistics.mean(final_price_for_onepointfive_dollar)
