@@ -1,0 +1,79 @@
+\documentclass[conference, anonymous]{IEEEtran}
+\usepackage{blindtext, graphicx}
+%\usepackage{subcaption}
+\graphicspath{ {./figs/} }
+\usepackage{graphicx,float}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+
+\usepackage{amsmath}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{comment}
+%\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{makecell}
+\usepackage{fancybox}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{caption}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\usepackage{multirow}
+\lstset{frame=fb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  frameround=fttt,
+  showstringspaces=false,
+  columns=fixed,
+numbers=left, numberstyle=\small, stepnumber=1, numbersep=0.5pt,
+  basicstyle={\small\ttfamily},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  otherkeywords={self},
+  breakatwhitespace=true,
+  tabsize=3,
+}
+
+\lstMakeShortInline[columns=fixed]|
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\include{macro}
+
+\title{RBcoin}
+
+\author{
+Mehdi Salehi
+}
+
+\maketitle
+
+\begin{abstract}
+In this paper we propose an indirectly backed stablecoin model namely RBcoin and then we analyze the impact of design factors on stability of the RBcoin system model.
+\end{abstract}
+
+
+
+\input{introduction.tex}
+%\input{background.tex}
+%\input{relatedWorks.tex}
+%\input{discussion.tex}
+%\input{conclusion.tex}
+
+
+
+
+%\bibliographystyle{ieeetr}
+%\bibliography{paper}
+\end{document}
