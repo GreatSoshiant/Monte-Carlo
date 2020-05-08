@@ -78,20 +78,20 @@ In this situation, the Redcoin price is \$1. Because the ETH price is dropped an
 In an experiment \textcolor{red}{302} simulations out of 1000 results in a bit drop on ETH after 100 days. In this scenario the mean of these \textcolor{red}{302} outcomes for the Black coin is \textcolor{red}{0.2458290144866682} with the standard deviation of \textcolor{red}{0.1366094047375821}. 
 
 \subsubsection{Rise in ETH price}
-If the price of ETH in USD goes up the Redcoin will be stable so its value will be \$1. Therefore because ETH price goes up and the Redcoin is stable and the value of deposited ETH is equal to the summation of Redcoin and Blackcoin value, the value of the Black coin will go up on a higher rate compared to the changes in ETH/USD. For example, assume a situation in which the price of ETH in dollar changes $\alpha$ percents and Alice (who deposited ETH on RBcoin DApp) deposited \$1.5 so the collateral amount is \$1.5. So we have:
+If the price of ETH in USD goes up the Redcoin will be stable so its value will be \$1. Therefore because ETH price goes up and the Redcoin is stable and the value of deposited ETH is equal to the summation of Redcoin and Blackcoin value, the value of the Black coin will go up on a higher rate compared to the changes in ETH/USD. For example, assume a situation in which the price of ETH in dollar changes $\alpha$ percents and Alice (who deposited ETH on RBcoin DApp) deposited \$C amount of ETH as a collateral to RB coin DApp So we have:
 
 \[Value of Deposited ETH = Black coin + Red coin\]
 
-By assuming that the value of deposited ETH will not drop bellow \$1 the value of Red coin is \$1. And because of $\alpha$ percent changes in ETH value in the dollar, the value of Deposited ETh is 1.5 * $\alpha$.
+By assuming that the value of deposited ETH will not drop bellow \$1 the value of Red coin is \$1. And because of $\alpha$ percent changes in ETH value in the dollar, the value of Deposited ETh is C * $\alpha$.
 
-\[Value of Black coin = 1.5\alpha - 1\]
+\[Value of Black coin = C\alpha - 1\]
 
-If Bob bought Black coin from Alice on day 0, he paid \$0.5 for the Black coin. In this situation for calculation return ratio for Bob on day 100 we have :
+If Bob bought Black coin from Alice on day 0, he paid C-1 for the Black coin. In this situation for calculation return ratio for Bob on day 100 we have :
 
 \begin{equation} \label{eq1}
 \begin{split}
-Return & = \frac{1.5\alpha - 1}{0.5} \\
- & = 3\alpha - 2
+Return & = \frac{C\alpha - 1}{C-1} \\
+ & = \alpha + \frac{\alpha - 1}{C-1}
 \end{split}
 \end{equation}
 
@@ -99,21 +99,30 @@ Using Equation \ref{eq1} and the fact that che changes on ETH price in dollar is
 
 \begin{equation} \label{eq2}
 \begin{split}
-Leverage Ratio & = \frac{3\alpha - 2}{\alpha} \\
- & = 3- \frac{2}{\alpha}
+Leverage Ratio & = \frac{Return}{\alpha} \\
+ & = \frac{C\alpha-1}{C\alpha-\alpha}
 \end{split}
 \end{equation}
 
+The leverage Ratio will be equal to zero when ETH price drops by $ \frac{1}{C} $. The maximum possible leverage ratio in RBcoin with collateral amount C will be:
+
+$$\lim_{\alpha\to\infty} \frac{C\alpha-1}{C\alpha-\alpha} = \frac{C}{C-1}$$
+
+For instance, for collateral amount C equals to \$1.5 like DAI Collateral Debt Position (CDP) the leverage ratio formula will be:
+
+\[Leverage Ratio = 3- \frac{2}{\alpha}\]
+
+
 Regarding Equation \ref{eq2} Leverage Ratio of the Black coin position will be increased when ETH value in the dollar goes up.
 
-So the leverage ratio of the Black coin is depending on the change of ETH price after the contract. Using this equation for $\alpha$ equals to $\frac{2}{3} $ the Leverage ratio becomes zero. The reason is that if the ETH price drops 33.33\% then the value of deposited ETH is \$1 and so the Black coin price will be zero. 
+So the leverage ratio of the Black coin for \$1.5 collateral is depending on the change of ETH price after the contract. Using this equation for $\alpha$ equals to $\frac{2}{3} $ the Leverage ratio becomes zero. The reason is that if the ETH price drops 33.33\% then the value of deposited ETH is \$1 and so the Black coin price will be zero. 
 
-Another interesting fact using Equation \ref{eq2} is that the highest Leverage ratio in the Black coin position will be 3 and it is when the price of ETH goes up a lot compared to the time of the contract.
+Another interesting fact is that the highest Leverage ratio in the Black coin position will be 3 and it is when the price of ETH goes up a lot compared to the time of the contract.
 
 In the previous part, we analyze the leverage ratio of the Black coin assuming $\alpha$ percent changes on ETH price. In this part, we combine the results of our Monte-Carlo simulations which shows ETH price changes estimations and the Leverage Ratio formula. 
-In an experiment of 1000 simulations and using Equation \ref{eq2} we analyze two different situations. In first we use simulation outcomes in which the resulted amount of ETH on day 100 is higher than \$1.5 (which means $\alpha$ is higher than 1). In this situation the mean of all resulted Leverage Ratios are \textcolor{red}{2.0756085371941726} with standard deviation of \textcolor{red}{0.24043476162253544}. In another scenario, we pick all outcomes with resulted in ETH higher than \$1 (which means the value of the Black coin is non-zero). In this scenario  the mean of all resulted Leverage Ratios are \textcolor{red}{1.8120987004369604} with standard deviation of \textcolor{red}{0.4117814399925659}.
+In an experiment of 1000 simulations we analyze two different situations. In first we use simulation outcomes in which the resulted amount of ETH on day 100 is higher than \$1.5 (which means $\alpha$ is higher than 1). In this situation the mean of all resulted Leverage Ratios are \textcolor{red}{2.0756085371941726} with standard deviation of \textcolor{red}{0.24043476162253544}. In another scenario, we pick all outcomes with resulted in ETH higher than \$1 (which means the value of the Black coin is non-zero). In this scenario  the mean of all resulted Leverage Ratios are \textcolor{red}{1.8120987004369604} with standard deviation of \textcolor{red}{0.4117814399925659}.
 
-All of this description has an assumption that Alice (the deposited \$1.5 as collateral). If Alice decides to deposit a higher amount as collateral the Leverage ratio will be decreased and it is logical because Alice takes a lower risk for lower reward.
+All of this description has an assumption that Alice deposited \$1.5 as collateral. If Alice decides to deposit a higher amount as collateral the Leverage ratio will be decreased and it is logical because Alice takes a lower risk for lower reward.
 
 \textcolor{green}{Maybe some description needed???}.
 
@@ -126,11 +135,11 @@ In Table \ref{tbl2} we analyze the outcomes for different amount of collateral b
 \begin{tabular}{l|l|l|l|l|l|}
 \cline{2-6}
                                                                                                             & {\color[HTML]{000000} \$1.05} & \$1.25 & \$1.5  & \$1.75 & \$2    \\ \hline
-\multicolumn{1}{|l|}{{\color[HTML]{000000} Mean of outcomes}}                                               & 1.1871                        & 1.4194 & 1.7494 & 1.9787 & 2.2588 \\ \hline
-\multicolumn{1}{|l|}{{\color[HTML]{000000} Stdev of outcomes}}                                              & 0.7160                        & 0.7853 & 1.0569 & 1.1370 & 1.3264 \\ \hline
-\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Number of cases\\ with zero blackcoins\end{tabular}}        & 490                           & 343    & 229    & 164    & 90     \\ \hline
-\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Average of Redcoins\\ bellow \$1\end{tabular}}              & 0.6841                        & 0.7298 & 0.7688 & 0.7841 & 0.7884 \\ \hline
-\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Mean of Leverage\\ for non-zero Black\\ coins\end{tabular}} & 1.6496                        & 1.7236 & 1.8396 & 1.9189 & 1.9765 \\ \hline
+\multicolumn{1}{|l|}{{\color[HTML]{000000} Mean of outcomes}}                                               & 1.2256                        & 1.4339 & 1.6987 & 1.9044 & 2.3053 \\ \hline
+\multicolumn{1}{|l|}{{\color[HTML]{000000} Stdev of outcomes}}                                              & 0.7894                        & 0.8593 & 1.0116 & 1.1236 & 1.2886 \\ \hline
+\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Number of cases\\ with zero blackcoins\end{tabular}}        & 471                           & 349    & 244    & 175    & 99     \\ \hline
+\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Average of Redcoins\\ bellow \$1\end{tabular}}              & 0.6843                        & 0.7111 & 0.7344 & 0.7909 & 0.7610 \\ \hline
+\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}Mean of Leverage\\ for non-zero Black\\ coins\end{tabular}} & 7.7507                        & 2.4710 & 1.8236 & 1.5826 & 1.5101 \\ \hline
 \end{tabular}
 \caption{Impact of Collateral Ratio on RBcoin}
 \label{tbl2}

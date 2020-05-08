@@ -38,7 +38,7 @@ print("This is standar diviation of ETH history prices",daily_vol)
 drift = daily_drift
 print("This is drift of the ETH prices",daily_drift)
 
-
+temprory=0
 
 
 numberSimulation=1000
@@ -95,7 +95,6 @@ for i in range(numberSimulation):
     #####   1. outcomes lower than 1USD as redBellowOne
     #####   2. outcomes lesser and equal to one as blackCoinZero (In this part black coin is equal to zero)
     #####   3. outcomes that are higher than 1USD has a value for blackcoin --> positives
-
     if ((first_money * price_series[len(price_series)-1]) < 1):
         redBellowOne.append((first_money * price_series[len(price_series)-1]))
     if ((first_money * price_series[len(price_series)-1]) > 1 and (first_money * price_series[len(price_series)-1]) < 1.5 ):
@@ -105,9 +104,11 @@ for i in range(numberSimulation):
     else:
         positives.append((first_money * price_series[len(price_series)-1]))
     if ((first_money * price_series[len(price_series)-1]) >= 1.5):
-        leverages.append(3- (2 /(first_money * price_series[len(price_series)-1])))
+        temprory=(first_money * price_series[len(price_series)-1])
+        leverages.append((cAmount*temprory -1)/(cAmount*temprory -temprory))
     if ((first_money * price_series[len(price_series)-1]) >= 1):
-        fulllevrage.append(3- (2 /(first_money * price_series[len(price_series)-1])))
+        temprory=(first_money * price_series[len(price_series)-1])
+        fulllevrage.append((cAmount*temprory -1)/(cAmount*temprory -temprory))
 
 print("The mean of last day outcomes is:",statistics.mean(final_price_for_onepointfive_dollar))
 print("The stantard deviation of the last day outcomes is:",statistics.stdev(final_price_for_onepointfive_dollar))
