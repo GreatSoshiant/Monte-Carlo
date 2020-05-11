@@ -32,11 +32,11 @@ daily_var= statistics.variance(returns)
 daily_drift=daily_avr+(daily_var/2)
 
 
-print("This is average of ETH history prices",daily_avr)
-print("This is standar diviation of ETH history prices",daily_vol)
+#print("This is average of ETH history prices",daily_avr)
+#print("This is standar diviation of ETH history prices",daily_vol)
 
 drift = daily_drift
-print("This is drift of the ETH prices",daily_drift)
+#print("This is drift of the ETH prices",daily_drift)
 
 temprory=0
 
@@ -55,6 +55,7 @@ redBellowOne=[]
 leverages=[]
 littleDrop=[]
 fulllevrage=[]
+
 for i in range(numberSimulation):
     count=0
     daily_vol= statistics.stdev(returns)
@@ -88,7 +89,7 @@ for i in range(numberSimulation):
     final_price_for_onepointfive_dollar.append(first_money * price_series[len(price_series)-1])
     ## Log of the outcomes of each simulation on day nth (100)
     logReturn.append(math.log(first_money * price_series[len(price_series)-1]))
-
+    alpha=(first_money * price_series[len(price_series)-1])
     ##difference.append((first_money * price_series[len(price_series)-1])-1)
 
     ##### In this part we assume that for cAmount (collateral) investment we have outcomes and then choose the simulaion results with :
@@ -97,19 +98,23 @@ for i in range(numberSimulation):
     #####   3. outcomes that are higher than 1USD has a value for blackcoin --> positives
     if ((first_money * price_series[len(price_series)-1]) < 1):
         redBellowOne.append((first_money * price_series[len(price_series)-1]))
-    if ((first_money * price_series[len(price_series)-1]) > 1 and (first_money * price_series[len(price_series)-1]) < 1.5 ):
+    if ((first_money * price_series[len(price_series)-1]) > 1 and (first_money * price_series[len(price_series)-1]) < cAmount ):
         littleDrop.append((first_money * price_series[len(price_series)-1]))
     if ((first_money * price_series[len(price_series)-1]) <= 1):
         blackCoinZero.append((first_money * price_series[len(price_series)-1]))
     else:
         positives.append((first_money * price_series[len(price_series)-1]))
-    if ((first_money * price_series[len(price_series)-1]) >= 1.5):
+    if ((first_money * price_series[len(price_series)-1]) >= cAmount):
         temprory=(first_money * price_series[len(price_series)-1])
         leverages.append((cAmount*temprory -1)/(cAmount*temprory -temprory))
     if ((first_money * price_series[len(price_series)-1]) >= 1):
         temprory=(first_money * price_series[len(price_series)-1])
         fulllevrage.append((cAmount*temprory -1)/(cAmount*temprory -temprory))
 
+rednumber=len(redBellowOne)
+redmean=statistics.mean(redBellowOne)
+redexpected= ((redmean * rednumber)+ (1000 - rednumber))/1000
+blackexpected= ((1000-rednumber)*((statistics.mean(positives))-1))/1000
 print("The mean of last day outcomes is:",statistics.mean(final_price_for_onepointfive_dollar))
 print("The stantard deviation of the last day outcomes is:",statistics.stdev(final_price_for_onepointfive_dollar))
 
@@ -118,6 +123,10 @@ print("Number of cases that Blackcoin is zero:",len(blackCoinZero))
 print("Number of cases that Redcoin is bellow one dollar is:",len(redBellowOne))
 print("The mean of Redcoins bellow one dollar is:",statistics.mean(redBellowOne))
 print("The STdev of Redcoins bellow one dollar is:",statistics.stdev(redBellowOne))
+
+print("Expected Value of Redcoins is:",redexpected)
+print("Expected Value of Blackcoins is:",blackexpected)
+
 
 print("The mean of Leverage of Blackcoin is:",statistics.mean(leverages))
 print("The stantard deviation of Leverage is:",statistics.stdev(leverages))
