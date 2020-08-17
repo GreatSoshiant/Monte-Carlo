@@ -225,3 +225,20 @@ The problem of this type of desing is when the demand of redcoins are increasing
 However it uses free market decisions to calculate the price of red and black coins which means if the price of red coin increases and there is no demand for black coins the price of redcoins will exceeds a dollar. 
 
 The other problem of this type of design is the transaction fee for arbotragers. Because the arbitragers are using meta transactions they should pay high transaction fees for the arbitrage and it is not profitable in such cases.
+
+\subsection{Underlying asset}
+The first decision that a designer should take is choosing the asset that the issure use as a collateral to issue new stable coins.
+
+There is a strong dependency between the risk related to the underlying asset and the design parameters of an idirectly-backed stable coin.
+
+The stable coins could be backed by a single asset like SAI (first version of DAI), sUSD, USDx etc. or by basket of different crypto assets like DAI. In multi-collateral backed stable coins a number of design parameters are dependant to the assets used as collateral on the system.
+
+The underlying assets have two types:
+
+\begin{itemize}
+	\item \emph{Exogenous Asset}: Assets which have been used outside of the system and just a portion of the asset is used on the stable coin system. For instance, ETH coin, BAT token, KNC token and etc. are used as collateral in MakerDAO platform. These assets are designed to serve for other project but users can use them as collateral to issue new DAI tokens.
+	Another example is Binance token (BNB) used in USDx protocol. 
+	\item \emph{Endogenous Asset} These type of assets are designed just to be used on the stable coin system. It means the majority of the assets are locked or used on the system. The Synthetix Network Token is an example of endogenous assets. The SNX token is created to be used as collateral to issue new sUSD tokens, the stable token in the Synthetix project.
+\end{itemize}
+
+
