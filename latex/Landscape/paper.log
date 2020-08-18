@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.2.22)  16 AUG 2020 23:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.2.22)  17 AUG 2020 20:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -913,7 +913,7 @@ Package caption Info: End \AtBeginDocument code.
 \openout2 = `macro.aux'.
 
  (./macro.tex) (./introduction.tex
-<Mindmap.png, id=48, 2013.5225pt x 1235.61626pt>
+<Mindmap.png, id=56, 2013.5225pt x 1235.61626pt>
 File: Mindmap.png Graphic file (type png)
 <use Mindmap.png>
 Package pdftex.def Info: Mindmap.png  used on input line 10.
@@ -941,7 +941,17 @@ Underfull \hbox (badness 2608) in paragraph at lines 133--134
 de-sign of
  []
 
-[3] [4])
+[3] [4]
+Underfull \hbox (badness 2600) in paragraph at lines 247--248
+[]\OT1/ptm/m/n/10 There is a dif-fer-ence be-tween sup-ply ad-just-ment in
+ []
+
+[5]
+Underfull \hbox (badness 1552) in paragraph at lines 267--268
+[]\OT1/ptm/m/n/10 The cri-tique here is that DAI sta-ble coin is mostly
+ []
+
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -954,19 +964,19 @@ Before submitting the final camera ready copy, remember to:
  process uses the appropriate paper size.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 80.
-[5]
+[6]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 80.
  (./paper.aux (./macro.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 80.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 80.
 Package rerunfilecheck Info: File `paper.out' has not changed.
-(rerunfilecheck)             Checksum: 248EE711D63D9E7CA7BA9CE5F135903D;782.
+(rerunfilecheck)             Checksum: 34B48E55E29DDB649852557D780D6624;909.
  ) 
 Here is how much of TeX's memory you used:
- 18901 strings out of 492982
- 333180 string characters out of 6134896
+ 18906 strings out of 492982
+ 333246 string characters out of 6134896
  433734 words of memory out of 5000000
- 22282 multiletter control sequences out of 15000+600000
+ 22284 multiletter control sequences out of 15000+600000
  561338 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,8n,40p,10381b,515s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -975,10 +985,10 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paper.pdf (5 pages, 239355 bytes).
+Output written on paper.pdf (6 pages, 246002 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 112 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 94 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 140 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
+ 110 words of extra memory for PDF output out of 10000 (max. 10000000)
 

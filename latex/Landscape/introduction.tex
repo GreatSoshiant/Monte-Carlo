@@ -241,4 +241,41 @@ The underlying assets have two types:
 	\item \emph{Endogenous Asset} These type of assets are designed just to be used on the stable coin system. It means the majority of the assets are locked or used on the system. The Synthetix Network Token is an example of endogenous assets. The SNX token is created to be used as collateral to issue new sUSD tokens, the stable token in the Synthetix project.
 \end{itemize}
 
+\subsection{Supply adjustment}
+There is a class of stable coins named Money Supply Adjustment stable coins. In this type of design the staibility comes from adjustment of the supply of the stable coin. In other words, in the case that the price of stable coin exceeds \$1 the system will increase the supply using such a mechanism to reduce the price of the stable coin and vice versa. 
 
+There is a difference between supply adjustment in indirectly-backed mechanism and Money Supply Adjustment method. In Money Supply Adjustment there is just one coin (Stable coin) that the designer tries to adjust its supply. But, in Indirectly-backed stable coins there two different tokens, red and black that should be adjusted.
+
+In a bunch of indirectly-backed stable coins the designer uses supply adjustment mechanim to insure the price stability of the stable coin. For instance, in MakerDAO project there are two system parameters, Staility fee and Dai Saving Rate (DSR), to adjust the supply of the Dai stable coin.
+
+There is a smart contract named DAI Saving contract or DSR contract. DAI token holders can lock their DAI tokens on the DSR contract and recieve an interest on the deposited DAI. It is very similar to Saving Accounts in banking. 
+Stability fee is the fee that the Dai borrowers must pay back to the system. 
+
+The MakerDAO system uses a combination of these two rates to adjust the supply of the DAI tokens and CDPs. Staibility fee is the tool to adjust the CDPs and the amount of ETHs locked in the system. Decreasing the staibility fee is an opportunity for users to create new CDPs with lower cost of borrowing. If the Maker token holders come to the conclusion that the system needs more CDPs they can reduce the staibility fee.
+On the other hand, decreasing the DSR rate encourages the users that locked their DAI tokens on the DSR contract to withdraw their tokens and supply them to the market which increases the supply of the DAI toknes.
+
+These two rates are changed by proposals and voting of Maker token holders. So the supply adjustment on the MakerDAO system is a human intervention mechanism. It has a conflict with the decentralization vision of the platform. Because the staibility of the tokens are strongly dependant on the DSR and Staibility fee and these two are being set by humans. However, MakerPlatform uses Decentralized Autonomous Organizations (DAO) to decentralize the governance but there is a critique about it which we will talk on the governance section.
+
+The question may be raised here is why we need these two rates to adjust the supply of the DAI tokens. Assume that the demand for DAI tokens increases. The total supply of DAI should be increased as well or the price of DAI will exceed \$1 due to the supply and demand rule. So, arbitragers has an opportunity to take profit. They can issue new tokens worth \$1 and sell them on the market which increases the supply and reduce the price of the DAI token. However there is a problem for arbitragers. Theys should create a CDP to issue new DAI tokens and they are not able to transfer or sell the CDP after the arbitrage. So, the arbitragers cannot issue new tokens for this situation. In this case the Maker token holders have two choices:
+\begin{itemize}
+	\item \emph{Reduce the DSR rate}: In case that significant amount of DAIs are locked in the DSR contract, Maker token holders can vote to reduce the DSR rate. Consequently, the users who locked their tokens on DSR contract will withdraw their token from the contract, the supply of DAI will be increased and the price will be reduced. 
+	\item \emph{ Reduce the Staibility fee}: In case that the deposited amount on DSR contract is not enough to response the demand new DAI tokens should be issued and supplied to the market to stabilize the price of DAI. In such a case the Maker voters must vote to reduce the staibility fee to reduce the cost for users to create new CDPs and DAI tokens. 
+	
+In this case the DSR rate is important as well. Because it is possible that users create new CDPS and DAIs and then instead of supplying newly generated DAI to the market just deposit them on the DSR contract. So the relation between DSR rate and Staibility fee is important. 
+\end{itemize}
+
+The critique here is that DAI stable coin is mostly intervention-based stable coin. The other solution to supply adjustment is to make Black coins (CDP in MakerDAO protocol) fungible. As discussed before, the arbitragers are able to issue new tokens if they find arbitrage opportunities and sell the other token (Black coin) to the market. It is a trade off between level of intervention on the system and the staibility of the Red coins. Because, without any intervention the price of redcoins have more fuctuations but we let the market to decide the price. 
+
+\subsection{Governance}
+The decisions about the future of the project is of important in the design of the system. There is a spectrum of governance models for the future of the project. The right spot of the spectrum is when the proposals and changes on the system is made just by founders of the project. This is the most centralized type of governance design. The other side of spectrum is when the system has not governance, i.e. the developers deploy the code to the blockchain and leave the project. So, there won't be changes in the future.
+
+There is another design type in the middle of the spectrum in which the designer tries to decentralized the governance of the project. In these projects the governance tokens of the system will be distributed by a mechanism such as Initial Coin Offering (ICO), Yield Farming and etc. Then the governance token holders are responsible to vote on the future proposal of the systems.
+
+For instance the MKR token is the governance token of the Maker system. Each token represents a vote for future proposals. There are critiques about the governance model of Maker platform:
+
+\begin{itemize}
+	\item \emph{Technocracy instead of Democracy}: There is a debate on this type of design about information asymmetry. The governance token holders who gains from technical background has more information about the smart contracts, processes and logic behind the protocol. This information asymmetry could help the technical voters to get their own way on the proposals and voting on them. In other words, for proposals that have benefit for them, they use their knowledge to convinece the other voter to vote on the proposals.
+	
+The ordinary users in these systems will follow the technocrats on the voting and it gives the technocrats higher decision power than what they have on their pockets.   
+	\item \emph{Level of Centralization}: One of the key points in designing a DAO for governance of a project is the level of decentrality of the voters. The privacy charectaristic of the blockchains make it hard to track the token owners. If a malicious user owns a big portion of the governance token then the system is suciptible to governance attacks and the malicious user is able to vote and execute the proposals to maximize the profit. 
+\end{itemize}
