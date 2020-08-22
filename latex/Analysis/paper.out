@@ -1,0 +1,9 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Analysis on RBcoins}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Impact of ETH/USD volatility on the Red and Black coin}{section.2}% 3
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Significant drop on ETH price}{subsection.2.1}% 4
+\BOOKMARK [3][-]{subsubsection.2.1.2}{A little drop on ETH price}{subsection.2.1}% 5
+\BOOKMARK [3][-]{subsubsection.2.1.3}{Rise in ETH price}{subsection.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Impact of Over-Collaterallization Ratio}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{Impact of simulation days in RBcoin analysis}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.4}{Impact of early Liquidation}{section.2}% 9

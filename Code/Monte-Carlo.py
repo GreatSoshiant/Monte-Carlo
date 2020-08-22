@@ -11,8 +11,16 @@ from scipy.stats import lognorm
 style.use('ggplot')
 
 day_before = input("how many days you need for API?: ")  #Days for API
-cAmount = float(input("What is your Collateral amount? ")) #amount for Collateral
+cRs = input("What is your Collateral amount? ") #amount for Collateral
 day_number = int(input("Enter a day numbers you want: ")) #number of days you want for simulations
+
+cAmount = float(cRs.split()[0])
+#print(cAmount)
+collaterals=[]
+for i in range(len(cRs.split())):
+    collaterals.append(float(cRs.split()[i]))
+
+print(collaterals)
 
 ## Get prices from API
 r=requests.get('https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=' + day_before)
@@ -25,6 +33,12 @@ for i in range(len(prices)-1):
 last_price=prices[-1]
 
 first_money= cAmount / prices[-1] #first_money is the factor of collateral amount to last price of ETH
+print(first_money)
+first_moneys=[]
+for i in range(len(collaterals)):
+    first_moneys.append( collaterals[i] / prices[-1])
+
+print(first_moneys)
 
 daily_vol= statistics.stdev(returns)
 daily_avr= statistics.mean(returns)
@@ -55,6 +69,18 @@ redBellowOne=[]
 leverages=[]
 littleDrop=[]
 fulllevrage=[]
+######################################################################
+######################################################################
+########     For different Collaterals################################
+######################################################################
+######################################################################
+blackCoinZeroS=[[] for i in range(len(collaterals))]
+positivesS=[[] for i in range(len(collaterals))]
+redBellowOneS=[[] for i in range(len(collaterals))]
+leveragesS=[[] for i in range(len(collaterals))]
+littleDropS=[[] for i in range(len(collaterals))]
+fulllevrageS=[[] for i in range(len(collaterals))]
+######################################################################
 
 for i in range(numberSimulation):
     count=0
@@ -110,6 +136,23 @@ for i in range(numberSimulation):
     if ((first_money * price_series[len(price_series)-1]) >= 1):
         temprory=(first_money * price_series[len(price_series)-1])
         fulllevrage.append((cAmount*temprory -1)/(cAmount*temprory -temprory))
+################################################################################
+    for w in range(len(collaterals)):
+        if ((first_moneys[w] * price_series[len(price_series)-1]) < 1):
+            redBellowOneS[w].append((first_moneys[w] * price_series[len(price_series)-1]))
+        if ((first_moneys[w] * price_series[len(price_series)-1]) > 1 and (first_moneys[w] * price_series[len(price_series)-1]) < collaterals[w] ):
+            littleDropS[w].append((first_moneys[w] * price_series[len(price_series)-1]))
+        if ((first_moneys[w] * price_series[len(price_series)-1]) <= 1):
+            blackCoinZeroS[w].append((first_moneys[w] * price_series[len(price_series)-1]))
+        else:
+            positivesS[w].append((first_moneys[w] * price_series[len(price_series)-1]))
+        if ((first_moneys[w] * price_series[len(price_series)-1]) >= collaterals[w]):
+            temprory=(first_moneys[w] * price_series[len(price_series)-1])
+            leveragesS[w].append((collaterals[w]*temprory -1)/(collaterals[w]*temprory -temprory))
+        if ((first_moneys[w] * price_series[len(price_series)-1]) >= 1):
+            temprory=(first_moneys[w] * price_series[len(price_series)-1])
+            fulllevrageS[w].append((collaterals[w]*temprory -1)/(collaterals[w]*temprory -temprory))
+
 
 rednumber=len(redBellowOne)
 redmean=statistics.mean(redBellowOne)
@@ -137,7 +180,41 @@ print("The stantard deviation of fulllevrage of Blackcoin for non-zero Blackcoin
 print("Number of cases for a little drop in ETH is:",len(littleDrop))
 print("The mean of cases for a little drop in ETH is:",statistics.mean(littleDrop))
 print("The stantard deviation of cases for a little drop in ETH is:",statistics.stdev(littleDrop))
+print("#################################################")
+print("#################################################")
 
+##########################################################################################
+##########################################################################################
+#################  For multi collateral    ###############################################
+##########################################################################################
+##########################################################################################
+rednumbers=[]
+redmeans=[]
+redexpecteds=[]
+blackexpecteds=[]
+for i in range(len(collaterals)):
+    rednumbers.append(len(redBellowOneS[i]))
+    redmeans.append(statistics.mean(redBellowOneS[i]))
+    redexpecteds.append(((redmeans[i] * rednumbers[i])+ (1000 - rednumbers[i]))/1000)
+    blackexpecteds.append(((1000-rednumbers[i])*((statistics.mean(positivesS[i]))-1))/1000)
+    print("Number of cases that Blackcoin is zero:",len(blackCoinZeroS[i]))
+    print("Number of cases that Redcoin is bellow one dollar is:",len(redBellowOneS[i]))
+    print("The mean of Redcoins bellow one dollar is:",statistics.mean(redBellowOneS[i]))
+    print("The STdev of Redcoins bellow one dollar is:",statistics.stdev(redBellowOneS[i]))
+    print("Expected Value of Redcoins is:",redexpecteds[i])
+    print("Expected Value of Blackcoins is:",blackexpecteds[i])
+    print("The mean of Leverage of Blackcoin is:",statistics.mean(leveragesS[i]))
+    print("The stantard deviation of Leverage is:",statistics.stdev(leveragesS[i]))
+    print("The mean of fulllevrage Leverage of Blackcoin for non-zero Blackcoin cases is:",statistics.mean(fulllevrageS[i]))
+    print("The stantard deviation of fulllevrage of Blackcoin for non-zero Blackcoin cases is:",statistics.stdev(fulllevrageS[i]))
+    print("Number of cases for a little drop in ETH is:",len(littleDropS[i]))
+    print("The mean of cases for a little drop in ETH is:",statistics.mean(littleDropS[i]))
+    print("The stantard deviation of cases for a little drop in ETH is:",statistics.stdev(littleDropS[i]))
+    print("#################################################")
+    print("#################################################")
+
+#########################################################################################
+#########################################################################################
 standar_div = statistics.stdev(final_price_for_onepointfive_dollar)
 miangin = statistics.mean(final_price_for_onepointfive_dollar)
 new_drift=  miangin + (standar_div**2)/2  -cAmount
