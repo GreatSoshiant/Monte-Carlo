@@ -1,18 +1,19 @@
 \section{Design Landscape}
-The purpose of designing a crypto-asset backed stablecoin is to create a stable asset out of a volatile asset. There are number of stablecoins using crypto-assets as collateral to issue stablecoins which shown a very broad design landscape for indirectly-backed stable coins.
+The purpose of designing a crypto-asset backed stablecoin is to create a stable asset out of a volatile asset. There are a number of stablecoins using crypto-assets as collateral to issue stablecoins which shows a very broad design landscape for indirectly-backed stable coins.
 
-In this part, we propose a systematical design decision model for indirectly-backed stablecoins. There are some key design decisions for each core feature. First we describe core feature and then key design decisions related to the main features and also we will discuss about pros and cons of each feature.
+In this part, we propose a systematical design-decision model for indirectly-backed stablecoins. There are some key design decisions for each core feature. We describe core features and the key design decisions related to the main features, and also we will discuss the pros and cons of each feature.
 
-An overview of the indirectly-backed stablecoins design landscape is on Figure below:
+An overview of the indirectly-backed stablecoins design landscape is in Figure \ref{land}.
 
 \begin{figure*} [ht]
 \centering
 \includegraphics[width=16cm]{Mindmap}
 \caption{overview of the indirectly-backed stablecoins design landscape}
+\label{land}
 \end{figure*}
 
 \section{Fungibility}
-Fungibility or Interchangeability refers to the ability of an asset to be exchanged by the same asset type with equal quality and quantity. For instance, dollar bills are fungible because people can exchange same amount of dollar without any frictions.
+Fungibility or Interchangeability refers to the feature of an asset to be exchanged by the same asset type with equal quality and quantity. For instance, dollar bills are fungible because people can exchange the same amount of dollars without any frictions.
 
 The first design decision is whether the tokens on the systems should be fungible or should be non-fungible. 
 
@@ -25,31 +26,26 @@ We will discuss them seperately on next sections.
 
 
 \subsection{Red coins Fungibility}
-The Red coins, stable coin of the system, could be fungible or non-fungible. All existing indirectly-backed stablecoins are using fungible stablecoin design. However, it could be non-fungible as well.
+The Red coins, the stable coin of the system, could be fungible or non-fungible. All currently implemented indirectly-backed stablecoins are using fungible stablecoin design. However, it could be non-fungible as well.
 
 \subsubsection{Non-fungible Red coins}
-A stablecoin system designer could allow redcoins to be non-fungible. For instance, each token could be backed by different amount of ETHs without any limitation such as collateral ratio, liquidation and etc.
+A stablecoin system designer could allow red coins to be non-fungible. For instance, each token could be backed by a different amount of ETHs without limitations on the system such as collateral ratio, liquidation and etc.
 
-In this design class the Red coin and Black coin should be pair-wise. Because each pair-coin are backed by a different vault with specific amount of deposited ETH.
+In this design class, the Red coin and Black coin should be pair-wise. Because each pair is backing by a different vault and a specific amount of deposited ETH.
 
-On order to specify each red coin there should be characterisitc to differentiate each red coin.
+There should be a system parameter for each red coin, depends on its vault to distinct the coins.
+For example, each red coin could be marked by debt to collateral ratio, the number of minted red coins divided by the value of deposited ETH on the related vault, which clarifies the safeties of the coin.
+So the buyer could have speculation on the price of each red coin base on the debt to collateral ratio.
 
-For example, each red coin could be marked with debt to collateral ratio, number of minted red coins divided by value of deposited ETH on the related vault, which clarify the safetiness of the redcoin.
+Some reasons push designers to make red coins fungible. The first reason is usability. Assume that Alice wants to buy 100 red coins. On the other side, Bob wants to sell just 30 coins, Carol wants to sell 50 and David wants to sell 20 red coins. Now Alice should make a price speculation of three different coins and buy them at different prices which is not convenient for her.
 
-So the buyer of redcoin could have an speculation on the price of each redcoin base on debt to collateral ratio.
-
-However, there are reasons that push designers to make red coins fungible. The first reason is usability. Assume that Alice wants to buy 100 of redcoins. On the other side, Bob wants to sell just 30 coins, Carol wants to sell 50 and David wans to sell 20 red coins. Now Alice should make price assumption of three different coins and buy them with different prices which is not convenient for her.
-The other issue with non-fungible red token is the price discovery. We need markets and crowd wisdom to offer different opinions of the value of an asset. The aggeregated results will discover the price of an asset. In non-fungible design there is not a straight relation between the price of each redcoin and the specific charectristic of them. So, Each person has a speculation for each coin. Because of non-fungibility the aggregations would not happened and so the real price will not be discovered.
+The other issue with the non-fungible red coins is price discovery. Markets and crowd wisdom help to aggregate different opinions on the value of an asset. The aggregated results will discover the efficient price of the asset. In non-fungible design, there is not a straight relation between the price of each red coin and the specific characteristic of them like the debt to collateral ratio. So, Each person has speculation for each coin. Because of non-fungibility, the aggregations would not happen and so the real price will not be discovered.
 
 The other reason is that stable coin users are willing to use the stable coins as a money. So, they need stable coins serve as a unit of account which means that you can price other goods or assets using the stable coin. In non-fungible design each red coin has a specific price. So, users can not price other goods based on the stable coin.
 
-\textcolor{red}{Pros}:
-
-\textcolor{red}{Cons}:
-
 
 \subsection{Fungible Red coins}
-As mentioned on the previos part, stable coin designers put all their effort to create a stable coin systems with fungible red coins. There are different mechanisms to bring fungibility into red coins. We categorize them into two key designs discussed on next sections.
+As mentioned in the previous part, stable coin designers put all their effort to create stable coin systems including fungible red coins. There are different mechanisms to bring fungibility into red coins. We classify them into two key designs discussed in the next sections.
 
 \begin{itemize}
   \item Under-collaterallization
@@ -59,141 +55,141 @@ As mentioned on the previos part, stable coin designers put all their effort to 
 
 \subsubsection{Collateral Value Assurance}
 
-One of the ways to bring fungibility to red coins is to set a lower limit for vaults (Collateralization ratio). If the value of deposited ETH in a vault drops bellow a specific amount then the system decide to take some actions. This situation is called Under-collateralization.
+One of the methods to bring fungibility into red coins is to set a lower limit for vaults (Collateralization ratio). If the value of deposited ETH in a vault drops beneath a specific amount, then the system decides to take an action. 
 
-Because all red tokens have high probability to be backed by at least collateralization ratio amount of ETHs it somehow secured the fungibility of redcoins.
- 
-In fact, all redcoin holders are sure that their red coins are backed by at least a dollar (with high probability) and there is no difference between their red coin and red coin of other people in this case.
+In this circumstance, there is a minimum amount of ETHs (collateral ratio)  backing each red coin. It secures the fungibility of red coins. Red coin holders are sure that there is at least a dollar in the vault for their red coin  (strongly expected). There is no difference between their red coin and the red coin of other people in this circumstance.
 
-There exist different designs to secure the vaults from under-collateralization scenario which is discussed in detail on next sections. Some of them are incentivizing vaults that keep their deposit more than collateralization ratio and some of them are disincetivazing the bad actors.
-
+We will discuss various designs that differ on how they secure the vaults from the under-collateralization in the next sections. Some of them are incentivizing vault keepers to keep their deposit more than collateralization ratio and some of them are disincentivizing the bad actors of the system.
  
 \paragraph{Liquidation}
-This type of design is similar to the account margin in traditional finance. If the price of underlying asset drops and the value of the vault goes under collareralization ratio, the system will liquidate the vault.
+This variety of design is similar to the marginal accounts in traditional finance. If the underlying asset decreases in price and the value of a vault runs under the collateralization ratio, the system will liquidate the vault.
 
-Liquidation happens when it is probable that a vault is not able to pay its obligation and the vault's deposit will transfer to a person who take the responsibility of the debt of the vault. In other words, the liquidator should pay the borrowed redcoin (and other obligation in some designs such as staibility fee in MakerDAO) and receive the vault in exchange.
+Liquidation occurs in the case that a vault is the danger area and may not able to pay its obligation. The deposited assets will transfer to the person who takes the responsibility of the debt of the vault. In other words, the liquidator should pay the borrowed red coin (and other obligations in a type of design, such as stability fee in MakerDAO) and receive the vault in exchange.
 
-The majority of vaults are over-collateralized by liquidating under-collateralized vaults and if a vaults goes under-collateralized it will be liquidated. So, the redcoin holders are pretty sure that their coin is backed by at least over-collateralization amount of underlying asset and they can exchange their redcoins because the coins are similar and there is no difference between them.
 
-Smart contracts are not able to trigger themselves. So, there should be an outsider player (like Keepers in MakerDao) to liquidate the alerted vaults. They should track the system and to find an under-collateralized vault and call liquidation function. Then the keeper will send the debt of the vault to the smart contract and receive the deposit on the vault in exchange.
+In liquidation design, the majority of vaults are over-collateralized. If a vault goes under-collateralize it will be liquidated. So, the red coin holders are pretty sure that their coin is backed by a dollar (. They can exchange their asset because the red coins are similar.
 
-There are design parameters in liquidation mechanism:
+Smart contracts cannot trigger themselves. So, there should be an outsider player (like Keepers in MakerDao) to liquidate the warned vaults. They should trace the system to find the under-collateralized vaults and call the liquidation function. Then the keeper will transfer the debt of the vault to the smart contract and receive the deposit of the vault in exchange.
+
+There are design parameters in the liquidation method:
 
 \begin{enumerate}
   \item Collateralization Ratio:
-  This number shows the factor of over-collateralization. In fact the ratio between the value of the collateral on each vault and the value of borrowed redcoins should always be more than the collateralization ratio.
+This number shows the factor of over-collateralization. The ratio between the value of the deposits on each vault and the value of borrowed red coins should always be more than the collateralization ratio.
   
-The collateralization ratio is depending on the volatility of the underlying asset. For instance, in MakerDAO platform the collateralization ratio for ETH vaults is 1.5. However, in Synthetix project it is 7.5 for SNX token which is more volatile than ETH.
+The collateralization ratio is depending on the volatility of the underlying asset. For instance, in the MakerDAO platform, the collateralization ratio for ETH vaults is 1.5. However, in the Synthetix project, it is 7.5 for SNX token, which is more volatile than ETH.
   \item Liquidation Incentive:
-A smart contract is not able to trigger itself. An outsider player named liquidator should pay the transaction fee to call the liquidation function of the smart contract. There are effective factors on the costs and profit of liquidators:
+A smart contract is not able to trigger itself. An outsider player named liquidator should pay the transaction fee to call the liquidation function of the smart contract. Some factors influence the costs and profit of liquidators:
 \begin{enumerate}
 	\item Transaction fee:
-	The liquidator should trigger the liquidation function, send the sufficient redcoins and play on the auction to win the vault and must pay transaction fees for these processes.
-	\item Cost of capital: The liquidator has to pay the obligation in Redcoin to recieve the deposited coins on the vault. So the liquidator need enough liquidity for liquidation processes. There is an opportunity cost for the liquidator for not lending her capital and gaining interest out of it. On other scenarios the liquidator may just borrow the fund from lending platforms just to liquidate the vault and pay back the loan afterwards. There is a cost of borrowing in this scenario as well.So, there is a cost of capital for the liquidator.
-	\item Price Feed: RB coin systems need the price of the underlying asset collected by oracles. Price inefficiency may impose extra costs to the liquidator
+The liquidator should trigger the liquidation function, send the sufficient red coins, and bid on the auction to win the vault. The user has to pay the transaction fee for these processes. The transaction fee depends on the time of transaction and network congestion.  
+	\item Cost of capital: The liquidator pays the obligation by Red coin and receives the deposited coins of the vault. Therefore, the liquidator needs a sufficient amount of red coins for liquidation. There is an opportunity cost associated with the decision of the liquidator to not lend her capital and gain interest.
+
+In other scenarios, the liquidator may just borrow the fund from lending platforms to liquidate the vault and pay back the loan afterward. There is a cost of borrowing in this scenario as well. So, there is a cost of capital for the liquidator.
+	\item Price Oracles: RB coin systems need the price of the underlying asset in USD. Blockchains have no access to externals data. Oracles are outsider systems that collect the price and push them to the blockchains. Price inefficiency may impose extra costs on the liquidator. For instance, if the price of the asset is \$100 on the markets, although the oracle price is \$90, the liquidator spends more to provide liquidity from the markets.
 \end{enumerate}  
 
-The designer has to incentivize the liquidators to watch the blockchain, find alerted positions, and then send transactions and liquidate them. 
+The designer has to incentivize the liquidators to trace the blockchain, find alerted positions, and then send transactions to liquidate them. 
 
-The mechanism of the incentivization is different between protocols. A majority of platforms gives the liquidator discounts on the vaults. For instance in SAI (Single Collateral DAI) there was a \%3 discount on liquidation process. Other platforms are using auction models and let the market deciede about the value of the vault. 
+The mechanism of the incentivization is varied between protocols. A majority of platforms give the liquidator discounts on the vaults. For instance, in Single Collateral DAI (SAI), there was a \%3 discount on the liquidation process. Other platforms are using auction models to let the market decide about the value of the vault. 
   
   \item Auction model:
-In case of liquidations different liquidators come up with an alerted position and want to liquidate it. The system designer have options for the decision of choosing the winner liquidator. 
-The easiest implementation mechanism is the First Come First Serve However, it may not be fair to vault holder if the liquidator bids with low amount of redcoins. 
+In the case of liquidations,  liquidators may come up with a specific warned position and want to liquidate it. The system designer has different options for the decision of picking the winner liquidator.
+ 
+The simplest implementation mechanism is the First Come First Serve. However, it won't be fair for the vault holder if the first liquidator bids with a low amount of red coins.
 
-There are other auction-based mechanisms to find the liquidator. The question raised here is which type of auction is the most efficient and fair one for both bidders and vault holder.
+There are other auction-based mechanisms to find the liquidator. The question raised here is, which method is the most efficient and fair auction model for both bidders and vault holders.
 
-MakerDao uses a combination of an absolute auction and a reverse auction model for the liquidation process.
-The absolute auction is used till the bids cover the debt of the vault. After exceeding bids from the debt the auction will be reversed and the bidders bid on lower amount of the underlying assets in the liquidated vault for determined amount of DAI tokens that are specified on the privious auction step.
+MakerDao utilizes a mixture of an absolute-auction and a reverse-auction model for the liquidation process.
+
+The absolute auction model is used until the bids cover the debt of the vault. When the bids pass the debt, the auction reversed, the bidders bid on a lower amount of the deposits on the vault for a specific amount of DAI tokens, specified on the absolute auction step.
   
   \item Liquidation penalty:
-Liquidation penalty is an extera punishment for the black coin holders to care about their debt to collateral ratio.
-MakerDAO platform charges liquidated vault extera \%13 as a punishment for their vault holders. There are two main reason to add Liquidation penalty to the design:
+The liquidation penalty is an extra punishment for the black coin holders to care about their debt to collateral ratio.
+MakerDAO platform charges liquidated vault extra \%13 as a punishment for their vault holders. There are two main reasons to add Liquidation penalty on the design:
 
 \begin{enumerate}
 
   \item To force vault keepers to be over-collateralized
-  \item To mitigate grinding attacks: grinding attack happens when the position holder intentionally unsafe its own position and participate in the liquidation auction against its own position to buy the liquidated asset cheaper.
+  \item To mitigate grinding attacks: grinding attack occurs when the position holder deliberately unsafe her black coin and participate in the liquidation auction against her position to buy her deposited assets cheaper.
 
 \end{enumerate}
 \end{enumerate}
 
 \paragraph{Withholding rewards}
 
-In the other types of the design such as liquidation, bad actors are disincentivized. But there is another approach to encourage users to act in a proper way, Incentivizing good actors.
+Majority types of designs like liquidation are disincentivizing bad actors. But, another approach is to encourage users to act properly and incentivizing good actors of the system.
 
-For instance, in the Synthetix project users must collateralize SNX token (Synthetix network token) to receive sUSD (Synthetix stable coin pegging a dollar). There is no margin call or liquidation on the design. But there is a reward on the system for users who have more than the over-collateralization ratio on their vaults. 
-In fact the Synthetix system has \%2 annual inflation on SNX token. The inflationary tokens are allocated to the vaults that have deposits more than collateralization ratio.
-There is another reward source as well. The traders on Synthetix exchange pay transfer fees that are collected and distributed to the vaults holding more than collateral ratio.
+For instance, in the Synthetix project users need collateralize SNX tokens (Synthetix network token) to receive sUSD tokens (Synthetix stable coin pegging a USD). There is no margin call methods or liquidation function on the design. But, there is a reward on the system for users who keep more than the over-collateralization ratio. 
+The Synthetix system has \%2 annual inflation on SNX tokens. The inflationary tokens are allocated to the vaults that hold more than the collateralization ratio.
 
-The system incentivizes people to stake their SNX token and be over-collateralized to receive the rewards and there is no punishment in the system for bad actors.
+There is another reward for the system. The traders on the exchange of the Synthetix project, pay transfer fees collected and distributed to the vaults holding more than the collateral ratio.
+
+The system incentivizes people to stake their SNX token to be over-collateralized and receive the rewards. So, there is no punishment in the system for bad actors in this class of design.
 
 \paragraph{Banning Black coin holders}
 
-In the design of indirectly-backed stable coins the Red coins are not redeemable. In other words, The red coin holders are not able to give back their red coins and recieve the backed ETH directly. The only way to redeem redcoins is to have (or buy if possible) a black coin and request for netting out. 
+In the design of indirectly-backed stable coins, the red coins are not redeemable. In other words, the red coin holders cannot give back their red coins to receive \$1 of the deposited ETH in exchange. The red coin holder must own (or buy if possible) a black coin to net out a vault and receive the ETH.
 
-In liquidation scenario, the designer is forced all black coin holder to be over-collateralized using liquidation punishment. Red coin holders and arbitragers are certain that with high probability each redcoin is backed by sufficient amount of ETH to be \$1 and there is no difference between redcoins which means redcoins are fungible.
+In the liquidation scenario, the designer pushes black coin holders to be over-collateralized, applying liquidation punishments. Red coin holders and arbitragers are confident that there is no difference between the red coins because each of the red coins is backed by a sufficient amount of ETHs to be \$1 (with high probability).
 
-In another scenario, the designer could remove liquidation and just ban black coin position holders from netting out. In fungible black coin holder design the designer ban black coin holders from transfering their token as well. 
+In another class, the designer removes the liquidation mechanism, prevent black coin holders from withdrawal. In the fungible black coin design class, the designer also forbids the black coin holders from transferring their token. 
 
-The incentive for black coin holders to be over-collateralized has been reduced compare to liquidation design. But there is a huge incentive left for them to be over-collateralized. If the price of underlying asset drops the black coin holders are maybe want to sell their deposited asset. In this scenario just black coin holder that have over-collateralized vaults are able to net out and recieve their underlying asset and then sell it to the market.
+In this situation, the incentives for black coin holders to be over-collateralized has been decreased, compared to liquidation design class. But, there is a huge incentive left for them to be over-collateralized. If the price of the underlying asset drops, the black coin holders may want to sell their deposited assets to reduce the loss. In this scenario, just black coin holders that have over-collateralized vaults can net out and receive their underlying assets to sell them to the market.
 
-This type of design will increase the fluctuation of redcoin price. The market will watch the aggregated collaterals on the system and the number of redcoins issued by the system and the price of underlying asset to evaluate the price of redcoins. So when the price of underlying asset drops the price of redcoins will reduce regarding to the underlying asset price. 
+This type of design will increase the fluctuation of the price of the red coin. The market watches the aggregated collaterals on the system and the number of red coins issued by the system and also the price of the underlying asset to evaluate the price of red coins. So when the price of underlying asset drops, the price of red coins will reduce concerning the underlying asset price. 
 
-In this scenario redcoin holders are taking part of risk of underlying asset volatility risk.
+In this scenario, red coin holders are taking parts of the risk of underlying asset volatility risk. On the situation that the price of the asset drops significantly, the value of the stable coin will fall.
 
 \paragraph{Reputation systems}
 
-In traditional finance, reputation systems and reputation scoring is used to remove or reduce the collateral needed for a specific financial transaction. In fact, parties are using their reputation as a collateral or source of trust for financial services. 
+In traditional finance, reputation scoring systems are used to decrease or eliminate the collateral needs for a specific financial transaction. Participants are utilizing their reputation as collateral or source of trust for financial services. 
 
-For example, in the FICO credit score system, users are able to enhance their credit limit by increasing their credit score. There is always a default risk on credits but the person who defaulted will be punished by credit score reduction. The bad actor will lose reputation score and forbiden from using plenty of financial services. Therefore, Users have enough incentive to pay their invoices.
+For instance, in the FICO credit score system, users can enhance their credit limit by increasing their credit score. There is a default risk on credit systems, but the defaulted person will be punished by credit score reduction. The bad actor loses reputation scores forbidden from using plenty of financial services. Therefore, users have adequate incentives to pay their bills.
 
-A revoloution of decentralizing finance on top of blockchain technologies and cryptocurrencies began from early 2018 named Decentralized Finance (DeFi) movement. There are a myraid of different decentralized financial services out there such as MakerDAO, Compound, Synthetix, Aave and etc. 
+A revolution of decentralizing the finance products on top of blockchain technologies began in early 2018, named Decentralized Finance (Defi) movement. There is a myriad of different decentralized financial services out there, such as MakerDAO, Compound, Synthetix, Aave, etc. 
 
-There is not any difference between users that act properly on DeFi platforms and the bad actors. Obviously the DeFi ecosystem suffers from lack of a reputation system or reputation scoring. Using reputation system will incentivize users to act properly and reduce the default risk of the system. On the other side of the coin, the users with good reputation scores have new opportonities and the cost of defaulting will be increased for them.
+There are no differences between users that act properly on Defi platforms and the bad actors. The DeFi ecosystem suffers from a lack of a reputation system or reputation scoring. Using a reputation system will incentivize users to act properly and also reduce the default risk of the system. On the other side of the coin, the users with high-grade reputation scores have new opportunities. So, the cost of defaulting will be increased for high-grade users.
 
-There are hurdles for implementing an effective reputation systems on blockchains. Lack of strong identities and anonymity is one of them. Another restriction is users are able to create fake histories, However these are not impossible to address.
+There are barriers to implementing an effective reputation system on blockchains. Lack of strong identities or anonymity is one of them. Also, users can create fake histories. However, these are not impossible to address.
 
-In case that our system concludes a trustworthy reputation system the designer is able to use reputation as a collateral. For instance we describe two different designs using reputation systems:
+In case that our system concludes a trustworthy reputation system, the designer can use reputation as collateral.  We describe two different designs using reputation systems:
 \begin{enumerate}
 	\item Reputation-based collateral ratio: 
-	In design of the system the collateral ratio could be dependent on the reputation of the user. In other words, the collateral ratio is higher for new users (users with no reputation) and lower for users that act properly for a long time.
+In the design of the system, the collateral ratio could be reliant on the reputation of the user. In other words, the collateral ratio is higher for new users (users with no reputation) and lower for users that act properly for a long time.
 	\item Reputation-based staibility fee
-In systems like MakerDAO the DAI borrowers are obliged to pay a fee on their borrowing named staibility fee. This staibility fee is being set by Maker token holders.
-	In a design based on reputation the staibility fee could be dependent on the reputation of the user. The reputable user is paying lower staibility fee compared to the new users.
+In systems like MakerDAO, the DAI borrowers are obliged to pay a fee on their borrowing named stability fee. This stability fee is being set by Maker token holders.
+	In a design based on the reputation, the stability fee could be dependent on the reputation of the user. The reputable user is paying a lower stability fee compared to the new users.
 \end{enumerate}
  
 \paragraph{Insurance}
+Insurance models are used to hedge the risk of unexpected events in different systems. Under-collateralization of a vault is an unexpected event on the RBcoin system. The designer could use an insurance model to protect parties from financial loss in the case of under-collateralization. 
 
-Insurance is used to hedge the risk of unexpected events in different systems. Under-collateralization of a vault is somehow an unexpected event on the RBcoin system. The designer could use insurance model to protect parties from financial loss in the case of under-collateralization. 
+On the insurance model, the insurer will pay a premium to the insurance company. The company will protect the client from financial loss. 
 
-On insurance model the insurer will pay a premium to the insurance company and the company will protect the client from financial loss. 
-
-In RBcoins there could be a built-in or outsourced insurance model to protect parties from undercollateralization loss. The question raised here is who should pay the premium?
+In RBcoins there could be a built-in or outsourced insurance model to protect parties from under collateralization loss. The question raised here is who should pay the premium.
 
 \begin{enumerate}
 	\item Premium pay by Red coin holders:
-	It is very similar to Credit Default Swaps (CDS) on traditional finance. In this design the approach is that the red coin holders are lending some amount of money to black coin holders and black coin holders are borrowing from red coin holders to have a leveraged position on the underlying asset. In this situation the redcoin holders could pay insurance premium to the contract to protect themselves from default risk of black coin holders. In case of under-collateralization if the black coin holder could not afford the loss the insurance contract will pay the loss to the redcoin holder.
+It is very similar to Credit Default Swaps (CDS) on traditional finance. In this design, the approach is that the red coin holders are lending some amount of money to black coin holders. Therefore, black coin holders are borrowing from red coin holders to have a leveraged position on the underlying asset. In this situation, the red coin holders can pay an insurance premium to the contract to protect themselves from the default risk of black coin holders. In the case of under-collateralization, if the black coin holder cannot afford the loss, the insurance contract will pay the loss to the red coin holder.
 
-This type of design is implemented on MakerDAO platform in some ways. The DAI borrowers are paying a premium so called staibility fee to the system. These fees are collected on a pool named Maker Buffer pool. In the case of liquidation of a CDP, if the winner of the auction pays lower amount of the obligation of the vault the difference between the obligation and the paid amount will be paid by Maker Buffer pool.
+This type of design is implemented on the MakerDAO platform. The DAI borrowers are paying a premium so-called stability fee to the system. These fees are collected on a pool named Maker Buffer pool. In the case of liquidation of a CDP, if the winner of the auction pays a lower amount of the obligation of the vault, the difference between the obligation and the paid amount will be paid by the Maker Buffer pool.
 
 	\item Premium pay by Black coin holders
-In this type of design the black coin holders are paying the insurance premium. It is similar to the regular insurance contracts. For example, a person bought a house and insure it. Here the black coin holders are buying a position and pay the isurance premium. If the price of underlying asset drops and the vault going to be liquidated the insurance contract will pay on behalf of the insurer.
+In this type of design, the black coin holders are paying the insurance premium. It is similar to regular insurance contracts in which the insurer buys an asset and guarantee it by paying a premium to insurance companies. For example, a person purchases a house and insure it.
+Here the black coin holders are buying a position and pay the insurance premium. If the price of underlying asset drops and the vault going to be liquidated the insurance contract will pay on behalf of the insurer.
 	\item Premium pay by both
-	
-In this scenario both Red and Black coin holders are paying the insurance premium to insure their positions. 
+In this scenario, both Red and Black coin holders are paying the insurance premium to ensure their positions. 
 \end{enumerate}
 
-\subsubsection{Different Maturity Dates}
-In this type of design there are contracts like futures contract on Centralized finance (CeFi) which has a specific maturity date (M) and a strike price (K). strike price is the dollar value of ETHs that the parties agree that the stable player will recieve at the maturity date. 
+\subsubsection{Separate Maturity Dates}
+This kind of design employs the idea of Futures in traditional finance. Each contract is an agreement between a volatile and a stable party. They deposit an amount of ETHs on the system (Q). The strike price (K) is the dollar value of ETHs that the parties agree that the stable player will receive at the maturity date (M). The remained ETHs on the vault will go to the pocket of the volatile party.
 
+For a specific amount of pooled ETHs, two tranches are created, the stable token and a volatile token (black token). Tranching in traditional finance is used when several securities are created from a pool of other assets, carrying different risks. The junior tranche (volatile token) takes the majority of the risk and the senior tranche (stable coin) takes a lesser risk.  
 
-A party who longs ETH and another party who bets on stability are collecting an amount of ETH (Q) and create new contract by tranching ETH into two different tokens. The stable token and a volatile token. Tranching in CeFi means when a highly volatile asset are spliting into different securities takes different risks. The junior tranche (volatile tokens) takes the majority volatility risk of the underlying asset and the senior tranche (stable coin) takes lesser risk. There is a maturity date for new contracts and each stable and volatile token depends on the day of the agreement. 
+The stable tokens are not fungible because each represents a different maturity date.  To create a fungible stable coin, the stable tokens with different maturities are bundled to create the Red coin, stable coin of the system. The amount of red coins each user receives is depending on the maturity date and the strike price of the deposited stable coin.
 
-
-The stable tokens here are not fungible because each of them has a maturity date and the amount of underlying assets are varying day by day. To create a fungible coins, the stable tokens with different maturities are bundle together to create the Red coin which is stable coin of the system. The amount of redcoins the user get depends on the maturity date and the target price of the agreement.
-
-For example, in Lien project the agreement between parties is at the maturity day the stable token holder will receive k USD if the deposited ETH worth k USD and the surplus will go to the volatile token holder. If the value of deposited ETH dropped below k USD then the stable token worth under k USD and the volatile token worth nothing. There are different specified maturity dates every 2 weeks. When a party receives the stable token, she will deposit it on a smart contract named iDOL to receive the stable coin (iDOL token). In fact, the iDOL contract bundles stable tokens with different maturities and strike prices and issue a stable coin out of this basket.
+For example, in the Lien project, the agreement between parties is that at the maturity day, the stable token holder will receive k USD if the deposited ETH worth k USD, and the surplus will belong to the volatile token holder. If the value of deposited ETH dropped below k USD then the stable token worth below K USD and the volatile token worth zero. There are different specified maturity dates every 2 weeks. When a party receives a stable token, she will deposit it on a smart contract named iDOL to receive the stable coin (iDOL token). The iDOL contract bundles stable tokens with different maturities and strike prices and issues a stable coin out of this basket.
 
 \textcolor{red}{Here I can describe Lien in details ...}:
 
