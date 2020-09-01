@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-08-31T17:52:31.441Z" agent="5.0 (X11)" etag="f9ByGfJop-CGAYNz_YNL" version="13.6.6" type="github">
+<mxfile host="app.diagrams.net" modified="2020-09-01T18:36:26.134Z" agent="5.0 (X11)" etag="-USXJqD5nBQz86aTDD5h" version="13.6.6" type="github">
   <diagram id="2uQqoEkiqC2BgaODXjGB" name="Page-1">
-    <mxGraphModel dx="3129" dy="2209" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="4040" dy="2652" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -115,19 +115,19 @@
           <mxGeometry x="900" y="650" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--23" value="Liquidation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFC2C2;" parent="1" vertex="1">
-          <mxGeometry x="-50" y="-120" width="120" height="60" as="geometry" />
+          <mxGeometry x="-270" y="40" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--24" value="Withholding rewards" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFC2C2;" parent="1" vertex="1">
-          <mxGeometry x="-50" y="-30" width="120" height="60" as="geometry" />
+          <mxGeometry x="-270" y="110" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--25" value="Banning Net Out" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFC2C2;" parent="1" vertex="1">
-          <mxGeometry x="-50" y="70" width="120" height="60" as="geometry" />
+          <mxGeometry x="-270" y="180" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--26" value="Reputation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFC2C2;" parent="1" vertex="1">
-          <mxGeometry x="-50" y="240" width="120" height="60" as="geometry" />
+          <mxGeometry x="-270" y="320" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--27" value="Insurance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFC2C2;" parent="1" vertex="1">
-          <mxGeometry x="-50" y="150" width="120" height="60" as="geometry" />
+          <mxGeometry x="-270" y="250" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--34" value="Without Exercise option " style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C9C9C9;" parent="1" vertex="1">
           <mxGeometry x="1070" y="260" width="120" height="60" as="geometry" />
@@ -158,7 +158,7 @@
           <mxGeometry x="1275" y="210" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--42" value="&lt;div&gt;No Action&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFC2C2;" parent="1" vertex="1">
-          <mxGeometry x="-50" y="-200" width="120" height="60" as="geometry" />
+          <mxGeometry x="-270" y="-30" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--44" value="Exercise by Black holders " style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B897AC;" parent="1" vertex="1">
           <mxGeometry x="1275" y="340" width="120" height="60" as="geometry" />
@@ -181,9 +181,6 @@
         <mxCell id="sYWOo44r3JNA4WwwBi4--64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="sYWOo44r3JNA4WwwBi4--54" target="sYWOo44r3JNA4WwwBi4--59" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="sYWOo44r3JNA4WwwBi4--65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="sYWOo44r3JNA4WwwBi4--54" target="sYWOo44r3JNA4WwwBi4--60" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="sYWOo44r3JNA4WwwBi4--54" target="sYWOo44r3JNA4WwwBi4--67" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
@@ -191,22 +188,19 @@
           <mxGeometry x="190" y="580" width="140" height="60" as="geometry" />
         </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--56" value="Float" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFC2C2;" parent="1" vertex="1">
-          <mxGeometry x="-50" y="440" width="120" height="60" as="geometry" />
+          <mxGeometry x="-270" y="440" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--57" value="Interest rate models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFC2C2;" parent="1" vertex="1">
-          <mxGeometry x="-50" y="550" width="120" height="60" as="geometry" />
+          <mxGeometry x="-270" y="510" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--58" value="Setting paramethers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFC2C2;" parent="1" vertex="1">
-          <mxGeometry x="-50" y="670" width="120" height="60" as="geometry" />
+          <mxGeometry x="-270" y="580" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--59" value="Issue haircuts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFC2C2;" parent="1" vertex="1">
-          <mxGeometry x="-50" y="780" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="sYWOo44r3JNA4WwwBi4--60" value="&lt;div&gt;Secondary tokens&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFC2C2;" parent="1" vertex="1">
-          <mxGeometry x="-50" y="890" width="120" height="60" as="geometry" />
+          <mxGeometry x="-270" y="650" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="sYWOo44r3JNA4WwwBi4--67" value="Algorithmic rebasing models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFC2C2;" parent="1" vertex="1">
-          <mxGeometry x="-50" y="1000" width="120" height="60" as="geometry" />
+          <mxGeometry x="-270" y="720" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
