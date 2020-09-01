@@ -47,45 +47,6 @@ The abstract should briefly summarize the contents of the paper in
 %
 %
 \section{Analysis}
-\subsection{A Subsection Sample}
-Please note that the first paragraph of a section or subsection is
-not indented. The first paragraph that follows a table, figure,
-equation etc. does not need an indent, either.
-
-Subsequent paragraphs, however, are indented.
-
-\subsubsection{Sample Heading (Third Level)} Only two levels of
-headings should be numbered. Lower level headings remain unnumbered;
-they are formatted as run-in headings.
-
-\paragraph{Sample Heading (Fourth Level)}
-The contribution should contain no more than four levels of
-headings. Table~\ref{tab1} gives a summary of all heading levels.
-
-\begin{table}
-\caption{Table captions should be placed above the
-tables.}\label{tab1}
-\begin{tabular}{|l|l|l|}
-\hline
-Heading level &  Example & Font size and style\\
-\hline
-Title (centered) &  {\Large\bfseries Lecture Notes} & 14 point, bold\\
-1st-level heading &  {\large\bfseries 1 Introduction} & 12 point, bold\\
-2nd-level heading & {\bfseries 2.1 Printing Area} & 10 point, bold\\
-3rd-level heading & {\bfseries Run-in Heading in Bold.} Text follows & 10 point, bold\\
-4th-level heading & {\itshape Lowest Level Heading.} Text follows & 10 point, italic\\
-\hline
-\end{tabular}
-\end{table}
-
-
-\noindent Displayed equations are centered and set on a separate
-line.
-\begin{equation}
-x + y = z
-\end{equation}
-
-
 
 \section{Systemization}
 There are a number of stablecoins using crypto-assets as collateral to issue stablecoins which shows a very broad design landscape for indirectly-backed stable coins and different design goals and strategies behind stable coin systems. In this part we will discuss about the mechanism that could be added on top of the RBcoin system discussed on previous section that can be used to change the propetries of the system. The designer of a stable coin may have design goals like Fungibility(I think it should be removed)(Money like tokens could be replaced or sth like that), Stability, Simplicity, and Decentrality. 
@@ -266,6 +227,32 @@ In this scenario, both Red and Black coin holders are paying the insurance premi
 \end{enumerate}
 \subsection{Intervention}
 
+The designer should indicate the level of intervention on the system. There could be some mechanisms to change the level of properties on the system. For instance, the designer may use interest rate models, algorithmic models or secondary tokens to acheive a system property.
+
+\subsubsection{Float}
+
+The desiner may let the system to be free of human or algorithm intervenions. This is the most decentral type of design. This type of design benefits simlicity and decentrality but the red coins has fluctuations.
+
+\subsubsection{Interest rate models}
+
+Interest rates are tools that a system governer has to stimulate the demand or supply side of a system. The designer of indirectly-backed stable coins can use interest rate models on red coins or black coins (two different rates) to adjust the supply and demand of black coins and red coins in the system. This rates could be adjusted by human intervention like DAI or could be fully algorithmic.
+
+\subsubsection{Parameter setting}
+
+All types of the indirectly-backed stable coin system has some parameters in common such as collateral ratio. In specific designs, there are other design parameters added to the system such as maturity dates, insurance premium and rates. The designer may decide to intervene on the system and change these parameter over time. This intervention could be by humans or algorithmic. 
+
+\subsubsection{Issue haircut}
+
+The designer should indicate that in case that the price of underlying asset goes down, who is the risk taker of the system. On regular system risk taker of the system is black coin holders till the price falls strongly and the black coins worth zero, then the red coin holders take all the risk.
+
+The designer has other option to divide the risk between red coin holders and black coin holders. The designer could set hair cut parameter a (< 1). It means that if the price of the underlying asset falls 1 percent the redcoin holder now takes a percent of the risk and the the black coin holder takes 1-a percent.
+
+This haircut parameter could be changed during the time by human intervention or algorithmic.
+
+
+\subsubsection{Algorithmic rebasing models}
+
+The designer may use rebasing models to change the number of tokens in a way that at the end of each day the price of redcoins is exactly a dollar.
 %
 % ---- Bibliography ----
 %
