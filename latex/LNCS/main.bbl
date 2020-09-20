@@ -1,0 +1,43 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{BS73}
+Black, F., Scholes, M.: The pricing of options and corporate liabilities.
+  Journal of Political Economy  \textbf{81}(3) (1973)
+
+\bibitem{CDM20}
+Clark, J., Demirag, D., Moosavi, S.: Demystifying stablecoins. In:
+  Communications of the ACM. vol.~63 (July 2020)
+
+\bibitem{GRB20}
+Gu, W., Raghuvanshi, A., Boneh, D.: Empirical measurements on pricing oracles
+  and decentralized governance for stablecoins. In: Cryptoeconomic Systems
+  (2020)
+
+\bibitem{GPH+20}
+Gudgeon, L., Perez, D., Harz, D., Livshits, B., Gervais, A.: The decentralized
+  financial crisis. In: CVCBT (2020)
+
+\bibitem{KMM20}
+Klages-Mundt, A., Minca, A.: While stability lasts: A stochastic model of
+  stablecoins. Tech. rep., arXiv (2020)
+
+\bibitem{MSS20}
+Moin, A., Sekniqi, K., Sirer, E.G.: Sok: A classification framework for
+  stablecoin designs. In: Financial Cryptography (2020)
+
+\bibitem{PHP+19}
+Pernice, I.G.A., Henningsen, S., Proskalovich, R., Florian, M., Elendner, H.:
+  Monetary stabilization in cryptocurrencies: Design approaches and open
+  questions. In: CVCBT (2019)
+
+\bibitem{QZLG20}
+Qin, K., Zhou, L., Livshits, B., Gervais, A.: Attacking the defi ecosystem with
+  flash loans for fun and profit. Tech. Rep. 2003.03810v2, arXiv (2020)
+
+\bibitem{Sey09}
+Seydel, R.U.: Tools for computational finance. Springer, fourth edn. (2009)
+
+\end{thebibliography}
