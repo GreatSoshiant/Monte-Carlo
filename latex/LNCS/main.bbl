@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 \providecommand{\doi}[1]{https://doi.org/#1}
@@ -36,6 +36,10 @@ Pernice, I.G.A., Henningsen, S., Proskalovich, R., Florian, M., Elendner, H.:
 \bibitem{QZLG20}
 Qin, K., Zhou, L., Livshits, B., Gervais, A.: Attacking the defi ecosystem with
   flash loans for fun and profit. Tech. Rep. 2003.03810v2, arXiv (2020)
+
+\bibitem{RoNi20}
+Robinson, D., Niemerg, A.: The yield protocol: On-chain lending with interest
+  rate discovery. Tech. rep., Yield.is (Apr 2020)
 
 \bibitem{Sey09}
 Seydel, R.U.: Tools for computational finance. Springer, fourth edn. (2009)
