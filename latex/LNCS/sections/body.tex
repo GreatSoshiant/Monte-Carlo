@@ -14,8 +14,11 @@ The key idea is that the black coin will nearly always be worth the equivalent o
 
 \paragraph{Relation to Dai.} Red-black coins are a primitive that has been used to build larger stablecoin systems like MakerDAO's currency \dai. In Maker, black coins are called \dai and a red coin is a \vault (\nee collateralized debt position or \cdp). However the system is immensely more complicated because it adds a number of features that the basic red-black coin primitive lacks: (1) interchangeability (fungibility) of red coins across multiple producers, (2) a liquidation process to incentive black coin holders to increase the collateralized ETH as ETH/USD declines or face an auction that automatically settles a red-black pair, and (3) fees to balance supply/demand of red coins with black coins that are adjustable through a distributed governance.
 %Mentioning why we choose Dai to describe on the paper 
- 1. Dai has largest market cap between stable coins and synthetic assets
- 2. Due to space limitations we can't have more examples
+ %1. Dai has largest market cap between stable coins and synthetic assets
+ %2. Due to space limitations we can't have more examples
+
+%Somewhere we can put this:
+%In this paper we are talking about some known financial instruments like Forward, %Futures, and options but we cannot describe them in detail because of space %limitations. For more detail the reader can use Options, futures and other %derivatives book by John C. Hull
 \subsection{Contributions} In this paper, we study the red-black coin primitive to better understand its characteristics in isolation, which seems prudent before analyzing more complex systems. We use methods from quantitative finance to model how risky red and black coins are under different scenarios. We then examine the necessity of the extra infrastructure projects like MakerDao add to red-black coins---precisely what does the added complexity (\eg stability fees, liquidation, global shutdown, \etc) achieve and what are the design alternatives for the same functionality?
 
 \subsection{Related Work} Several systemization of knowledge papers cover stablecoins~\cite{PHP+19,MSS20,CDM20}. Our notion of a red-black coin is inspired by the `indirectly-backed' classification from~\cite{CDM20}. Maker is considered a decentralized finance (DeFi) project and it (and other DeFi projects) has been studied from orthogonal angles including attacks/measurements on governance and oracles, attacks using flash loans, and modelling liquidity crises~\cite{GRB20,GPH+20,QZLG20,KMM20}. Our financial modelling uses the same methodology as~\cite{GPH+20}. Other projects built on the red-black primitive (for both stablecoins and synthetic assets) include Synthetix's sUSD, Kava's USDX, UMA, and BitUSD. 
