@@ -1,13 +1,13 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: splncs04.bst
-Database file #1: bib/pulp.bib.bib
-Database file #2: bib/new.bib.bib
+Database file #1: bib/pulp.bib
+Database file #2: bib/new.bib
 Warning--can't use both volume and number fields in CDM20
 You've used 11 entries,
             2850 wiz_defined-function locations,
-            660 strings with 5916 characters,
+            660 strings with 5918 characters,
 and the built_in function-call counts, 4947 in all, are:
 = -- 360
 > -- 177
