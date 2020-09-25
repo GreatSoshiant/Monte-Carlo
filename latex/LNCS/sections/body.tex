@@ -20,6 +20,8 @@ The key idea is that the black coin will nearly always be worth the equivalent o
 
 \subsection{Related Work} Several systemization of knowledge papers cover stablecoins~\cite{PHP+19,MSS20,CDM20}. Our notion of a red-black coin is inspired by the `indirectly-backed' classification from~\cite{CDM20}. In the other two~\cite{PHP+19,MSS20}, the mechanism is described as allowing a user to `borrow' USD from themselves using their ETH as collateral---we find this perspective less intuitive. None of the three SoKs provide deep coverage, analysis, or modelling of the stability mechanism in this paper, and instead focus on surveying several different types of stablecoins and mechanisms. Maker is considered a decentralized finance (DeFi) project and it (and other DeFi projects) has been studied from orthogonal angles including attacks/measurements on governance and oracles, attacks using flash loans, and modelling liquidity crises~\cite{GRB20,GPH+20,QZLG20,KMM20}. Our financial modelling uses the same methodology as~\cite{GPH+20}. Other projects built on the red-black primitive (for both stablecoins and synthetic assets) include Synthetix's sUSD, Kava's USDX, UMA, and BitUSD. 
 
+None of the papers include a design landscape for 'indirectly-backed' stable coins, which could help future designs in this category. We also employ a quantitative finance method and run different experiments to clarify how risky these stable coins are. 
+
 % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 \section{Financial Characteristics}
