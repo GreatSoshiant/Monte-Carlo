@@ -1,49 +1,49 @@
-This is BibTeX, Version 0.99d (TeX Live 2019)
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 The style file: splncs04.bst
-Database file #1: bib/pulp.bib
-Database file #2: bib/new.bib
+Database file #1: bib/pulp.bib.bib
+Database file #2: bib/new.bib.bib
 Warning--can't use both volume and number fields in CDM20
-You've used 11 entries,
+You've used 14 entries,
             2850 wiz_defined-function locations,
-            660 strings with 5918 characters,
-and the built_in function-call counts, 4947 in all, are:
-= -- 360
-> -- 177
-< -- 3
-+ -- 76
-- -- 62
-* -- 295
-:= -- 681
-add.period$ -- 12
-call.type$ -- 11
-change.case$ -- 75
+            672 strings with 6439 characters,
+and the built_in function-call counts, 6402 in all, are:
+= -- 475
+> -- 228
+< -- 4
++ -- 97
+- -- 80
+* -- 380
+:= -- 878
+add.period$ -- 16
+call.type$ -- 14
+change.case$ -- 95
 chr.to.int$ -- 0
-cite$ -- 12
-duplicate$ -- 478
-empty$ -- 477
-format.name$ -- 71
-if$ -- 1037
+cite$ -- 15
+duplicate$ -- 614
+empty$ -- 610
+format.name$ -- 92
+if$ -- 1348
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 104
-newline$ -- 39
-num.names$ -- 22
-pop$ -- 225
+int.to.str$ -- 14
+missing$ -- 132
+newline$ -- 48
+num.names$ -- 28
+pop$ -- 287
 preamble$ -- 1
-purify$ -- 53
+purify$ -- 68
 quote$ -- 0
-skip$ -- 90
+skip$ -- 125
 stack$ -- 0
-substring$ -- 164
-swap$ -- 211
-text.length$ -- 3
+substring$ -- 227
+swap$ -- 270
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 40
+type$ -- 52
 warning$ -- 1
-while$ -- 33
-width$ -- 13
-write$ -- 110
+while$ -- 45
+width$ -- 16
+write$ -- 138
 (There was 1 warning)

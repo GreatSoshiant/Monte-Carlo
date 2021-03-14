@@ -24,9 +24,22 @@ Gudgeon, L., Perez, D., Harz, D., Livshits, B., Gervais, A.: The decentralized
 Harris, L.: Trading and exchanges: market microstructure for practitioners.
   Oxford (2003)
 
+\bibitem{klages2020stablecoins}
+Klages-Mundt, A., Harz, D., Gudgeon, L., Liu, J.Y., Minca, A.: Stablecoins 2.0:
+  Economic foundations and risk-based models. In: Proceedings of the 2nd ACM
+  Conference on Advances in Financial Technologies. pp. 59--79 (2020)
+
+\bibitem{klages2019stability}
+Klages-Mundt, A., Minca, A.: (in) stability for the blockchain: Deleveraging
+  spirals and stablecoin attacks. arXiv preprint arXiv:1906.02152  (2019)
+
 \bibitem{KMM20}
 Klages-Mundt, A., Minca, A.: While stability lasts: A stochastic model of
   stablecoins. Tech. rep., arXiv (2020)
+
+\bibitem{klages2020while}
+Klages-Mundt, A., Minca, A.: While stability lasts: A stochastic model of
+  stablecoins. arXiv preprint arXiv:2004.01304  (2020)
 
 \bibitem{MSS20}
 Moin, A., Sekniqi, K., Sirer, E.G.: So{K}: A classification framework for
