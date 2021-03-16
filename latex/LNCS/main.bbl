@@ -7,6 +7,10 @@
 Black, F., Scholes, M.: The pricing of options and corporate liabilities.
   Journal of Political Economy  \textbf{81}(3) (1973)
 
+\bibitem{DUOnet}
+Cao1, Y., Dai, M., Kou, S., Li, L., Yang, C.: Designing stable coins. Tech.
+  rep., Duo Network Whitepaper (2018)
+
 \bibitem{CDM20}
 Clark, J., Demirag, D., Moosavi, S.: Demystifying stablecoins. In:
   Communications of the ACM. vol.~63 (July 2020)
@@ -36,10 +40,6 @@ Klages-Mundt, A., Minca, A.: (in) stability for the blockchain: Deleveraging
 \bibitem{KMM20}
 Klages-Mundt, A., Minca, A.: While stability lasts: A stochastic model of
   stablecoins. Tech. rep., arXiv (2020)
-
-\bibitem{klages2020while}
-Klages-Mundt, A., Minca, A.: While stability lasts: A stochastic model of
-  stablecoins. arXiv preprint arXiv:2004.01304  (2020)
 
 \bibitem{MSS20}
 Moin, A., Sekniqi, K., Sirer, E.G.: So{K}: A classification framework for

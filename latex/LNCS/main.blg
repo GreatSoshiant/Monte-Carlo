@@ -7,37 +7,37 @@ Database file #2: bib/new.bib.bib
 Warning--can't use both volume and number fields in CDM20
 You've used 14 entries,
             2850 wiz_defined-function locations,
-            672 strings with 6439 characters,
-and the built_in function-call counts, 6402 in all, are:
-= -- 475
-> -- 228
+            675 strings with 6462 characters,
+and the built_in function-call counts, 6524 in all, are:
+= -- 482
+> -- 243
 < -- 4
-+ -- 97
-- -- 80
-* -- 380
-:= -- 878
++ -- 103
+- -- 86
+* -- 391
+:= -- 895
 add.period$ -- 16
 call.type$ -- 14
-change.case$ -- 95
+change.case$ -- 99
 chr.to.int$ -- 0
 cite$ -- 15
-duplicate$ -- 614
+duplicate$ -- 620
 empty$ -- 610
-format.name$ -- 92
-if$ -- 1348
+format.name$ -- 98
+if$ -- 1368
 int.to.chr$ -- 0
 int.to.str$ -- 14
-missing$ -- 132
+missing$ -- 136
 newline$ -- 48
 num.names$ -- 28
-pop$ -- 287
+pop$ -- 295
 preamble$ -- 1
-purify$ -- 68
+purify$ -- 71
 quote$ -- 0
-skip$ -- 125
+skip$ -- 123
 stack$ -- 0
 substring$ -- 227
-swap$ -- 270
+swap$ -- 280
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
@@ -45,5 +45,5 @@ type$ -- 52
 warning$ -- 1
 while$ -- 45
 width$ -- 16
-write$ -- 138
+write$ -- 139
 (There was 1 warning)

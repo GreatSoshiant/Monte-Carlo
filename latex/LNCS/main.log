@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.2.22)  13 MAR 2021 20:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.2.22)  15 MAR 2021 22:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -476,31 +476,31 @@ LaTeX Font Info:    Try loading font information for U+stmry on input line 27.
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-<figures/price1.pdf, id=75, 182.53996pt x 116.435pt>
+<figures/price1.pdf, id=77, 182.53996pt x 116.435pt>
 File: figures/price1.pdf Graphic file (type pdf)
 <use figures/price1.pdf>
-Package pdftex.def Info: figures/price1.pdf  used on input line 39.
+Package pdftex.def Info: figures/price1.pdf  used on input line 41.
 (pdftex.def)             Requested size: 111.5191pt x 71.13188pt.
 
-Underfull \hbox (badness 1681) in paragraph at lines 39--39
+Underfull \hbox (badness 1681) in paragraph at lines 41--41
 []\OT1/cmr/m/n/9 (a) |A red coin, a black
  []
 
-<figures/price2.pdf, id=76, 299.1175pt x 116.435pt>
+<figures/price2.pdf, id=78, 299.1175pt x 116.435pt>
 File: figures/price2.pdf Graphic file (type pdf)
 <use figures/price2.pdf>
-Package pdftex.def Info: figures/price2.pdf  used on input line 41.
+Package pdftex.def Info: figures/price2.pdf  used on input line 43.
 (pdftex.def)             Requested size: 182.7398pt x 71.13188pt.
 [3]
-<figures/mc.pdf, id=97, 180.675pt x 112.42pt>
+<figures/mc.pdf, id=98, 180.675pt x 112.42pt>
 File: figures/mc.pdf Graphic file (type pdf)
 <use figures/mc.pdf>
-Package pdftex.def Info: figures/mc.pdf  used on input line 57.
+Package pdftex.def Info: figures/mc.pdf  used on input line 59.
 (pdftex.def)             Requested size: 138.84729pt x 86.39383pt.
-<figures/histro.pdf, id=98, 180.675pt x 122.4575pt>
+<figures/histro.pdf, id=99, 180.675pt x 122.4575pt>
 File: figures/histro.pdf Graphic file (type pdf)
 <use figures/histro.pdf>
-Package pdftex.def Info: figures/histro.pdf  used on input line 59.
+Package pdftex.def Info: figures/histro.pdf  used on input line 61.
 (pdftex.def)             Requested size: 138.84729pt x 94.10756pt.
  [4 </home/soshiant/Red-black/Monte-Carlo/latex/LNCS/figures/price1.pdf> </home/soshiant/Red-black/Monte-Carlo/latex/LNCS/figures/price2.pdf
 
@@ -512,7 +512,7 @@ pdfTeX warning: pdflatex (file /home/soshiant/Red-black/Monte-Carlo/latex/LNCS/f
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [6] [7] [8]) (/home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.bbl) [9]
+ [6] [7] [8]) (/home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.bbl [9]) [10]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 56.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 56.
  (/home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.aux)
@@ -523,18 +523,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 56.
  ) 
 Here is how much of TeX's memory you used:
- 8368 strings out of 492982
- 123490 string characters out of 6134896
- 226157 words of memory out of 5000000
+ 8369 strings out of 492982
+ 123479 string characters out of 6134896
+ 227148 words of memory out of 5000000
  11740 multiletter control sequences out of 15000+600000
  10201 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,10n,87p,1505b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,10n,87p,1505b,466s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on /home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.pdf (9 pages, 1041634 bytes).
+Output written on /home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.pdf (10 pages, 1042328 bytes).
 PDF statistics:
- 275 PDF objects out of 1000 (max. 8388607)
- 205 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
+ 281 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
  29 words of extra memory for PDF output out of 10000 (max. 10000000)
 
