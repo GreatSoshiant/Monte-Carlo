@@ -7,7 +7,7 @@ Database file #2: bib/new.bib.bib
 Warning--can't use both volume and number fields in CDM20
 You've used 14 entries,
             2850 wiz_defined-function locations,
-            675 strings with 6462 characters,
+            675 strings with 6463 characters,
 and the built_in function-call counts, 6524 in all, are:
 = -- 482
 > -- 243

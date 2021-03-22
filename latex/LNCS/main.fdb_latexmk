@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex main"] 1616343044 "main.aux" "main.bbl" "main" 1616344597
+["bibtex main"] 1616430259 "main.aux" "main.bbl" "main" 1616430325
   "./splncs04.bst" 1615654347 33694 182740d5d784dd29ee55be34dddd4ccc ""
   "bib/new.bib" 1615861012 2713 9e60057d806134bd5d6d2ca2e8bc743a ""
-  "bib/pulp.bib" 1615861012 160823 2ea5d8f5f1056319be8d55225b8a3f2f ""
-  "main.aux" 1616344597 4773 f000564350f1033f2bd136297dda766a ""
+  "bib/pulp.bib" 1616430324 160824 76cce24e6ef995ad8825c8a182450a4e ""
+  "main.aux" 1616430259 4773 f000564350f1033f2bd136297dda766a ""
   "main.bcf" 0 -1 0 ""
   (generated)
-  "main.blg"
   "main.bbl"
-["pdflatex"] 1616344597 "/home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.tex" "/home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.pdf" "main" 1616344597
+  "main.blg"
+["pdflatex"] 1616430259 "/home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.tex" "/home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.pdf" "main" 1616430325
   "/etc/texmf/web2c/texmf.cnf" 1582404303 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.aux" 1616344597 4773 f000564350f1033f2bd136297dda766a ""
+  "/home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.aux" 1616430259 4773 f000564350f1033f2bd136297dda766a ""
   "/home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.tex" 1616339723 2181 639797c9393ae01d972d1144a05b6f07 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
@@ -109,19 +109,19 @@
   "figures/price1.pdf" 1615654347 360542 d05ddccccdda22b6cb3163f72ce45638 ""
   "figures/price2.pdf" 1615654347 477737 239ecc9419d72b92afe7da006f7d7d56 ""
   "llncs.cls" 1615654347 43467 a21466011e5ed5d4c3f1d5a9af897395 ""
-  "main.aux" 1616344597 4773 f000564350f1033f2bd136297dda766a ""
-  "main.bbl" 1616343044 2331 27ba761dc4e235de16ec011e1ff23de0 "bibtex main"
-  "main.out" 1616344597 50 46f7932d2d80f8d6914d30ed780a5fad ""
+  "main.aux" 1616430259 4773 f000564350f1033f2bd136297dda766a ""
+  "main.bbl" 1616430259 2332 bb66ea84b8c1e7f5ea7ba869817c5d82 "bibtex main"
+  "main.out" 1616430259 50 46f7932d2d80f8d6914d30ed780a5fad ""
   "main.tex" 1616339723 2181 639797c9393ae01d972d1144a05b6f07 ""
   "sections/abstract.tex" 1615860130 893 89f2dc36c0068687831fce209195e7c6 ""
-  "sections/body.tex" 1616344596 27411 bb4350a1c7bb31fad7c6d3bfe86fea27 ""
+  "sections/body.tex" 1616429897 27486 45c48ae4a78342c772351edf268b7ac7 ""
   "setup/macros.tex" 1615654347 1869 941389c04bfaf0ebedb5f932be5c12d2 ""
   "setup/packages.tex" 1615654347 696 c85904d9037ec642e57c45f0bc085f0b ""
   "setup/table.tex" 1615654347 293 fb4e4871804acf48187fc3ed1cdef194 ""
   (generated)
-  "main.log"
   "main.pdf"
+  "main.log"
   "/home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.log"
-  "main.out"
   "/home/soshiant/Red-black/Monte-Carlo/latex/LNCS/main.pdf"
   "main.aux"
+  "main.out"
